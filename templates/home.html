@@ -1,7 +1,21 @@
-<h1>Django Image Uploading</h1>
-<ul>
-	{% for post in object_list  %}
-		<h2>{{post.title}}</h2>
-		<img src="{{post.cover.url}} " alt="{{post.title}}">
-	{% endfor %}
-</ul>
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% block title %}
+		<title>The x project</title>
+	{% endblock title %}
+</head>
+<body>
+	
+	{% block content %}
+		<ul>
+			<div>
+				{% for image in object_list   %}
+				<li>{{image.title}}<br><img src="{{image.cover.url}}" width="300" height="300"></li>
+			{% endfor %}
+			</div>
+		</ul>
+	{% endblock content %}
+</body>
+</html>
